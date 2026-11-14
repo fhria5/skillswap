@@ -24,13 +24,14 @@ Perkiraan waktu di bawah ini kasar, dihitung sesudah FreshTrack selesai: P0 ~7�
 13. **PWA** — install + offline baca daftar.
 14. **Pengingat sesi in-app** — badge + pengingat saat aplikasi dibuka (tanpa push server).
 15. **Moderasi** — laporkan profil/skill palsu; skor kepercayaan; tahan otomatis di bawah ambang.
+16. **AI Skill Finder** — cari skill sesuai kebutuhan dari GitHub + ClawHub API v1 + katalog skill Hermes; hasil hanya tautan + ringkasan, tidak pernah install otomatis; tautan audit keamanan ClawHub ditampilkan.
 
 ## P2 — Dicoret dulu bila mepet (Phase 4, opsional)
 
-16. **AI saran skill** dari deskripsi (Verboo); fallback manual bila AI gagal.
-17. **Statistik profil** — jam mengajar/belajar, grafik sederhana.
-18. **Bahasa UI kedua** (Indonesia).
-19. **Export riwayat** (CSV).
+17. **AI saran skill** dari deskripsi (Verboo); fallback manual bila AI gagal.
+18. **Statistik profil** — jam mengajar/belajar, grafik sederhana.
+19. **Bahasa UI kedua** (Indonesia).
+20. **Export riwayat** (CSV).
 
 ## Urutan build (ketergantungan)
 

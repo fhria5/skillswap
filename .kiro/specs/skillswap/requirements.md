@@ -56,3 +56,11 @@ Spec-driven requirements. No app code exists yet; this file is the contract the 
 - Credits are time, never money; no real-money payments, no in-app video calls, no official ID verification.
 - Scores are shown as computed, never as certainty ("likely match", not "perfect match").
 - Seed data (12 skills + 6 sessions) is labeled as demo data, never presented as real users.
+
+## REQ-11 — AI Skill Finder
+
+- User types a need in plain language ("I want to learn ..."); the app searches GitHub, ClawHub, the Hermes skill catalog, and other configured sources.
+- Each result shows: name, description, source, link, match score. Results are links + summaries only — the app never installs anything automatically.
+- Every ClawHub result links its security audit page; results from sources with a failed check are labeled, not hidden.
+- If one source fails or times out (15 s), the others still show with a label.
+- GitHub search runs unauthenticated by default (10 req/min, cached 1 h); an optional user token in local settings raises the limit and is stored on-device only.

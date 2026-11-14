@@ -17,6 +17,7 @@ Anyone, anywhere, with one skill to teach and one skill to learn. UI in English.
 - Tests before claims: every phase ends with a green regression run + a real-phone check by the user.
 - Honest write-up: the Devpost write-up must say plainly which parts Kiro built and which were finished by hand (lesson from FreshTrack).
 - AI is optional, never required: photo/description suggestions may use Verboo in a later phase; if time runs short, AI is cut first.
+- AI Skill Finder links only, never installs: results are links + summaries; every ClawHub result shows its security-audit link (ClawHub had a malware campaign in 2026 — never auto-install a community skill).
 
 ## Tech
 

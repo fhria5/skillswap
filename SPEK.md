@@ -27,6 +27,7 @@ Tawar skill (apa yang bisa diajarkan + apa yang mau dipelajari) → matching eng
 6. Feed live: tawaran, match, dan sesi baru muncul tanpa refresh (polling ≤ 5 dtk).
 7. Animasi: transisi kartu, progress kredit, skeleton loading; hormati `prefers-reduced-motion`.
 8. PWA: install, offline baca daftar.
+9. AI Skill Finder: pengguna ketik kebutuhan ("saya mau belajar ...") → AI mencari skill dari GitHub, ClawHub, katalog skill Hermes, dan sumber lain → hasil: nama, deskripsi, sumber, tautan, skor kecocokan. Hasil hanya tautan + ringkasan — TIDAK pernah install otomatis; tiap hasil ClawHub menampilkan tautan audit keamanannya.
 
 ## Backend (kedalaman)
 
@@ -35,8 +36,9 @@ Tawar skill (apa yang bisa diajarkan + apa yang mau dipelajari) → matching eng
 - Reputasi: skor dari ulasan sesi selesai saja (bukan ulasan bebas); laju respons dihitung dari riwayat.
 - Sinkron multi-perangkat: pola FreshTrack — Workers KV, debounce 1,5 dtk, last-write-wins, cap 64 KB / 200 item.
 - Audit log: semua transisi sesi + pergerakan kredit tercatat (hash-chain sederhana, pola SentinelBot).
+- Search aggregator (AI Skill Finder): Worker memanggil GitHub Search API (tanpa auth: 10 req/menit, hasil di-cache 1 jam; token pengguna opsional di pengaturan lokal, tersimpan di perangkat saja) + ClawHub API v1 (GET /api/v1/search) + indeks katalog skill Hermes (daftar statis dari repo/folder yang ditunjuk pengguna); AI (Verboo) merangkum + mencocokkan kebutuhan ke hasil; timeout 15 dtk; bila satu sumber gagal, sumber lain tetap tampil + diberi label.
 - Rate limit 30 req/IP/menit; CORS allowlist; validasi input (cap 2.000 karakter).
-- AI opsional (fase lanjut, BUKAN syarat Kiroween): saran skill dari deskripsi via Verboo, fallback ke input manual bila AI gagal. Bila waktu mepet, AI dicoret.
+- AI (dua kegunaan): (a) AI Skill Finder (P1) — cari skill dari GitHub + ClawHub + katalog Hermes sesuai kebutuhan pengguna; (b) saran skill dari deskripsi (P2). Keduanya opsional, BUKAN syarat Kiroween. Bila waktu mepet, (b) dicoret dulu; (a) dipertahankan bila sempat, bila tidak sempat dicoret tanpa mengurangi keabsahan submit.
 
 ## Kenapa Frankenstein
 

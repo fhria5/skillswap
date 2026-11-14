@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+dist/
+*.log
+# JANGAN abaikan .kiro — wajib ada di repo (syarat Kiroween, bisa diskualifikasi bila di-gitignore)
